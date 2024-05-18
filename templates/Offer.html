@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+Offers
+{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Offers</h1>
+    <div class="row">
+        {% for offer in offers %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Offer {{ offer.id }}</h5>
+                    <p class="card-text">Product ID: {{ offer.product_id }}</p>
+                    <p class="card-text">Offer Code: {{ offer.offer_id }}</p>
+
+                    <p class="card-text">Discount Percentage: {{ offer.discount_percentage }}</p>
+                    <p class="card-text">Start Date: {{ offer.start_date }}</p>
+                    <p class="card-text">End Date: {{ offer.end_date }}</p>
+                    <!-- Add more fields as needed -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

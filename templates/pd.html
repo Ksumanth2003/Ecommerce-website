@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+Customer Details
+{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <div class="card border-primary">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Customer Details</h5>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ custdata.fname }} {{ custdata.lname }}</h5>
+            <p class="card-text"><strong>Date of Birth:</strong> {{ custdata.dob }}</p>
+            <p class="card-text"><strong>Gender:</strong> {{ custdata.gender }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ custdata.email }}</p>
+            <p class="card-text"><strong>Phone Number:</strong> {{ custdata.phnumber }}</p>
+            <p class="card-text"><strong>Address:</strong> {{ custdata.address }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock body %}

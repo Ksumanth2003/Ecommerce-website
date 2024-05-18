@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}
+Kids
+{% endblock title %}
+{% block body %}
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for emp in category3 %}
+        <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static', filename=emp.image) }}" class="card-img-top h-100" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ emp.prname }}</h5>
+                    <p class="card-text">{{ emp.description }}</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Price: Rs {{ emp.price }}</li>
+                        <li class="list-group-item">Ratings: {{ emp.ratings }}</li>
+                        <!-- Add more details as needed -->
+                    </ul>
+                    
+                   
+                        <form action="/view_cart" method="post">
+                            <input type="hidden" name="product_id" value="{{ emp.id }}">
+                            <div class="input-group mt-3">
+                                <span class="input-group-text">Quantity</span>
+                                <input type="number" class="form-control" value="1" min="1" name="quantity">
+                            </div>
+                            <div class="input-group mt-3">
+                                <label class="input-group-text" for="sizeSelect_{{ emp.id }}">Size</label>
+                                <select class="form-select" id="sizeSelect_{{ emp.id }}" name="size">
+                                    <option selected>Select Size</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Add to Order</button>
+                        </form>
+                        
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

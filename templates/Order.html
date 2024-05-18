@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+Orders
+{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Orders</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Size</th>
+                <th>Offer</th>
+                <th>Discount (%)</th>
+                <th>Order Date</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.order_id }}</td>
+                <td>{{ order.customer_id }}</td>
+                <td>{{ order.product_name }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.size }}</td>
+                <td>{{ order.offer }}</td>
+                <td>{{ order.discount }}</td>
+                <td>{{ order.order_date }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.price }}</td>
+                <td>{{ order.total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
